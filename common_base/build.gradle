@@ -87,7 +87,7 @@ dependencies {
     compile project(':common_jpush')
     implementation project(':refresh-header')
     implementation project(':refresh-layout')
-//    implementation 'top.zibin:Luban:1.1.8'
+    implementation 'top.zibin:Luban:1.1.8'
 //    compile project(':common_postphoto')
     implementation 'me.jessyan:autosize:0.9.5'
 }
