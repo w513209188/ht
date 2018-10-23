@@ -25,7 +25,7 @@
             android:name="com.jungan.www.module_blackplay.activity.PBRoomActivity"
             android:configChanges="orientation|screenSize|layoutDirection"
             android:hardwareAccelerated="false"
-            android:theme="@style/PBAppTheme"/>
+            />
         <activity android:name="com.jungan.www.model_liveplay.activity.LiveRoomActivity"
             android:configChanges="orientation|screenSize|layoutDirection"
             android:hardwareAccelerated="false"
