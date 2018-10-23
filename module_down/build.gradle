@@ -23,9 +23,9 @@ android {
         }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resourcePrefix "down_"
-        if(isModule.toBoolean()){
-            multiDexEnabled true
-        }
+//        if(isModule.toBoolean()){
+//            multiDexEnabled true
+//        }
     }
 //    sourceSets {
 //        main {
