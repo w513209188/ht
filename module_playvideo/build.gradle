@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        aaptOptions.cruncherEnabled = false
+        aaptOptions.useNewCruncher = false
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+//    implementation project(':common_down')
+    implementation project(':common_base')
+    api deps.gson
+//    implementation 'com.google.code.gson:gson'
+//    compile project(path: ':videoplayer-sdk')
+    api deps.baijia.videoplayer
+//    implementation 'com.baijia.player:videoplayer:1.7.2-snapshot'
+//    compile project(path: ':mediaplayer')
+    api deps.support.app_compat
+//    compile 'com.android.support:appcompat-v7:25.3.0'
+    api deps.support.design
+//    compile 'com.android.support:design:25.3.0'
+    api deps.support.constraintLayout
+//    compile 'com.android.support.constraint:constraint-layout:1.1.0'
+    testCompile 'junit:junit:4.12'
+//    implementation 'com.jakewharton:butterknife:8.8.1'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    api deps.baijia.commonpermission
+//    implementation 'com.baijia.common:common-permission:1.1.0'
+    annotationProcessor  'com.alibaba:arouter-compiler:1.1.4'
+}
