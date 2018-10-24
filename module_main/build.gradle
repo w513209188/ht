@@ -2,8 +2,7 @@
 //    apply plugin: 'com.android.application'
 //} else {
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group = '513209188@qq.com'
+
 //}
 android {
     compileSdkVersion 27
